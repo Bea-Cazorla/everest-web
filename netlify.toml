@@ -1,0 +1,12 @@
+# Web estática: las páginas ya están generadas en el repositorio (python _build/build.py),
+# así que Netlify solo tiene que publicar la carpeta tal cual.
+[build]
+  publish = "."
+  command = ""
+
+# La carpeta del generador no forma parte de la web.
+[[redirects]]
+  from = "/_build/*"
+  to = "/404.html"
+  status = 404
+  force = true
