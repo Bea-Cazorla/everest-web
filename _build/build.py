@@ -449,6 +449,8 @@ PIPELINE = ('<ol class="pipeline">' + ''.join(
 JML, DAS, RZ, AM = 'Javier Martínez López', 'Domingo Alcaraz Segura', 'Regino Jesús Zamora Rodríguez', 'Ana Mellado García'
 BPC, ITB, JMAM, SAC = 'Beatriz Pérez Cazorla', 'Ingrid Tatiana Bello Rodríguez', 'José Manuel Álvarez Martínez', 'Salvador Arenas Castro'
 AJPL, JBL, JH, JG, BM = 'Antonio Jesús Pérez Luque', 'Jorge Bonache López', 'João Honrado', 'João Gonçalves', 'Bruno Marcos'
+NP, JLL, AR, TP = 'Nuria Pistón', 'Joana Llodrà Llabrés', 'Andrea Ros', 'Thedmer Postma'
+RK, MSA = 'Rohaifa Khaldi', 'Michael Sorochan Armstrong'
 
 OBJECTIVES = [
     'Co-diseñar y co-crear un grupo de trabajo ciencia-gestión que lidere un cambio transformador basado en el uso, por '
@@ -521,7 +523,7 @@ def task_page(n, title, lede, facts, sections):
 TASK_DETAIL = {}
 TASK_DETAIL[1] = task_page(
     1, 'Implicación de actores', OBJECTIVES[0],
-    [('Responsable', RZ), ('Equipo', f'{JML}, {DAS}, {JBL}, {BPC}, {ITB}'), ('Objetivo específico', '1'),
+    [('Responsable', RZ), ('Equipo', f'{JML}, {DAS}, {JBL}, {NP}, {AR}, {JMAM}, {BPC}, {ITB}'), ('Objetivo específico', '1'),
      ('Estado', 'En curso')],
     ['<section><h2 id="que-hacemos">Qué hacemos</h2>'
      '<p>Revisamos la literatura científica y los documentos de gestión, y usamos encuestas y reuniones para identificar '
@@ -594,7 +596,7 @@ TASK_DETAIL[2] = task_page(
 
 TASK_DETAIL[3] = task_page(
     3, 'Dinámicas de referencia', OBJECTIVES[2],
-    [('Responsable', DAS), ('Equipo', f'{JML}, {JMAM}, {AJPL}, {BPC}'), ('Objetivo específico', '3'),
+    [('Responsable', DAS), ('Equipo', f'{JML}, {JMAM}, {MSA}, {RK}, {AJPL}, {BPC}'), ('Objetivo específico', '3'),
      ('Estado', 'En curso')],
     ['<section><h2 id="que-hacemos">Qué hacemos</h2>'
      + leads(['<strong>Dinámicas de referencia:</strong> curva estacional media de cada variable, sus descriptores '
@@ -627,7 +629,7 @@ TASK_DETAIL[3] = task_page(
 TASK_DETAIL[4] = task_page(
     4, 'Aplicación a la gestión', OBJECTIVES[3],
     [('Responsables', f'{JML} (4.1.1 y 4.2) y {DAS} (4.1.2 y 4.3)'),
-     ('Equipo', f'{RZ}, {JMAM}, {SAC}, {JH}, {JG}, {BM}, {BPC}, {ITB}'), ('Objetivo específico', '4'),
+     ('Equipo', f'{RZ}, {JMAM}, {SAC}, {JH}, {JG}, {BM}, {RK}, {MSA}, {JLL}, {TP}, {BPC}, {ITB}'), ('Objetivo específico', '4'),
      ('Estado', 'En curso')],
     ['<section><p class="intro">Con los gestores de cada parque elegimos casos de estudio para tres preguntas de '
      'gestión. Siempre que es posible, calibramos y validamos los índices de satélite con los datos de campo de los '
@@ -691,7 +693,7 @@ TASK_DETAIL[4] = task_page(
 
 TASK_DETAIL[5] = task_page(
     5, 'Transferencia', OBJECTIVES[4],
-    [('Responsable', AM), ('Equipo', f'{JML}, {DAS}, {RZ}, {JBL}, {BPC}'), ('Objetivo específico', '5'),
+    [('Responsable', AM), ('Equipo', f'{JML}, {DAS}, {RZ}, {JBL}, {TP}, {NP}, {AR}, {JMAM}, {BPC}'), ('Objetivo específico', '5'),
      ('Estado', 'En curso')],
     ['<section><h2 id="que-hacemos">Qué hacemos</h2>'
      '<p><strong>5.1 · Herramienta de apoyo a la decisión.</strong> Incorporamos a MonitorEO los nuevos análisis que '
@@ -732,13 +734,20 @@ TEAM = [
     (AM, 'inv', 'Equipo de investigación', 'LifeWatch ERIC · Oficina ICT-Core (Sevilla)', 'Transferencia de conocimiento a gestores, responsables políticos y ciudadanía.', 'T5'),
     (BPC, 'inv', 'Equipo de investigación', 'Universidad de Granada', 'Teledetección y conservación. Desarrollo y coordinación técnica del proyecto.', 'T1–T5'),
     (ITB, 'trabajo', 'Investigadora predoctoral', 'Universidad de Granada', 'Variables de teledetección para evaluar el estado de conservación de los hábitats.', 'T1, T2, T4'),
-    (JMAM, 'trabajo', 'Equipo de trabajo', 'Universidad de Oviedo · IMIB', 'Teledetección y cartografía de hábitats.', 'T2, T3, T4.1.1'),
-    (SAC, 'trabajo', 'Equipo de trabajo', 'Universidad de Córdoba', 'Modelos de distribución de especies.', 'T2, T4.1.2'),
-    (AJPL, 'trabajo', 'Equipo de trabajo', 'INIA-CSIC', 'Teledetección y ecología forestal.', 'T2, T3'),
+    # Equipo de trabajo según la memoria del proyecto (apartado 3.2.2), con sus tareas (apartado 3.2.3)
+    (JMAM, 'trabajo', 'Equipo de trabajo', 'Universidad de Oviedo · IMIB', 'Teledetección y cartografía de hábitats.', 'T1, T2, T3, T4.1, T4.3, T5.2'),
     (JBL, 'trabajo', 'Equipo de trabajo', 'Organismo Autónomo Parques Nacionales', 'Gestión de parques nacionales. Co-desarrollador de REMOTE.', 'T1, T5'),
+    (NP, 'trabajo', 'Equipo de trabajo', 'Observatorio de Cambio Global de Sierra Nevada · IISTA-CEAMA', 'Co-creación de conocimiento. Co-coordinadora del grupo de trabajo de servicios ecosistémicos de GEO BON.', 'T1, T5.2'),
+    (JLL, 'trabajo', 'Equipo de trabajo', 'Observatorio de Cambio Global de Sierra Nevada · IISTA-CEAMA', 'Ecología de aguas continentales.', 'T4.2'),
+    (AR, 'trabajo', 'Equipo de trabajo', 'Observatorio de Cambio Global de Sierra Nevada · IISTA-CEAMA', 'Gestión de datos, interoperabilidad e interfaz ciencia-política.', 'T1, T5.2'),
+    (TP, 'trabajo', 'Equipo de trabajo', 'Observatorio de Cambio Global de Sierra Nevada · IISTA-CEAMA', 'Teledetección.', 'T4.2, T5.1'),
+    (SAC, 'trabajo', 'Equipo de trabajo', 'Universidad de Córdoba', 'Modelos de distribución de especies.', 'T2, T4.1.2'),
+    (AJPL, 'trabajo', 'Equipo de trabajo', 'IISTA-CEAMA · Universidad de Granada', 'Teledetección y ecología forestal.', 'T2, T3'),
     (JH, 'trabajo', 'Equipo de trabajo', 'CIBIO-InBIO · Universidade do Porto', 'Cartografía de vegetación y teledetección.', 'T4.1, T4.3'),
     (JG, 'trabajo', 'Equipo de trabajo', 'CIBIO-InBIO · Universidade do Porto', 'Teledetección, modelos de distribución y resiliencia de los ecosistemas.', 'T4.1.2, T4.3'),
     (BM, 'trabajo', 'Equipo de trabajo', 'CIBIO-InBIO · Universidade do Porto', 'Teledetección y recuperación de los ecosistemas tras perturbaciones.', 'T4.3'),
+    (RK, 'trabajo', 'Equipo de trabajo', 'Universidad de Granada · Instituto DaSCI', 'Teledetección e inteligencia artificial.', 'T3, T4.1.1'),
+    (MSA, 'trabajo', 'Equipo de trabajo', 'Universidad de Granada · Computational Data Science Lab', 'Aprendizaje automático y ciencia de datos.', 'T3, T4.1.1'),
 ]
 GROUPS = [('ip', 'Investigadores principales'), ('inv', 'Equipo de investigación'), ('trabajo', 'Equipo de trabajo')]
 
@@ -751,7 +760,6 @@ def initials(name):
 
 COLLABORATORS = [
     ('Pablo Guerrero y Carlos Navarro', 'desarrollo de MonitorEO y casos de estudio'),
-    ('Thedmer Postma y Joana Llodrà-Llabrés', 'Observatorio de Cambio Global de Sierra Nevada (IISTA-CEAMA): teledetección y lagunas'),
     ('Javier Cabello', 'Universidad de Almería: Tipos Funcionales de Ecosistemas'),
     ('Carmen Pérez-Martínez y Manuel Villar-Argaiz', 'Instituto del Agua, Universidad de Granada: limnología de las lagunas'),
     ('Jorge Castro y Alexandro B. Leverkus', 'Universidad de Granada: gestión posincendio'),
@@ -762,12 +770,11 @@ COLLABORATORS = [
 ]
 
 INSTITUTIONS = [
-    ('UGR', 'Universidad de Granada', 'Departamentos de Ecología y de Botánica · Instituto Interuniversitario de Investigación del Sistema Tierra en Andalucía (IISTA-CEAMA) · Observatorio de Cambio Global de Sierra Nevada', 'Granada, España', 'Entidad beneficiaria · coordinación · Tareas 1–5'),
+    ('UGR', 'Universidad de Granada', 'Departamentos de Ecología y de Botánica · Instituto Interuniversitario de Investigación del Sistema Tierra en Andalucía (IISTA-CEAMA) · Observatorio de Cambio Global de Sierra Nevada · Instituto de Ciencia de Datos e Inteligencia Computacional (DaSCI) · Computational Data Science Lab', 'Granada, España', 'Entidad beneficiaria · coordinación · Tareas 1–5'),
     ('LifeWatch ERIC', 'LifeWatch ERIC', 'Infraestructura europea de e-ciencia para la investigación en biodiversidad y ecosistemas · Oficina ICT-Core', 'Sevilla, España', 'Responsable de la Tarea 5 · infraestructura de MonitorEO'),
     ('OAPN', 'Organismo Autónomo Parques Nacionales', 'Red de Parques Nacionales · sistema de seguimiento por satélite REMOTE', 'Madrid, España', 'Tareas 1 y 5 · enlace con los parques'),
     ('Uniovi · IMIB', 'Universidad de Oviedo', 'Instituto Mixto de Investigación en Biodiversidad (Universidad de Oviedo, CSIC y Principado de Asturias)', 'Mieres, España', 'Tareas 2, 3 y 4.1.1 · cartografía de hábitats'),
     ('UCO', 'Universidad de Córdoba', 'Modelización de la distribución de especies', 'Córdoba, España', 'Tareas 2 y 4.1.2'),
-    ('INIA-CSIC', 'Instituto Nacional de Investigación y Tecnología Agraria y Alimentaria', 'Consejo Superior de Investigaciones Científicas', 'Madrid, España', 'Tareas 2 y 3'),
     ('CIBIO-InBIO', 'Universidade do Porto', 'Centro de Investigação em Biodiversidade e Recursos Genéticos', 'Vairão, Portugal', 'Tareas 4.1 y 4.3 · caso de estudio de Peneda-Gerês'),
 ]
 
@@ -1071,7 +1078,7 @@ MONITOREO_STATS = ('<ul class="mstats">'
                    '<li><b>1984</b><span>inicio de las series (Landsat)</span></li>'
                    '<li><b>8</b><span>formas de usarla, de la web a Python y R</span></li></ul>')
 
-PROFILES = [('sun', 'people', 'Público general', 'Aplicación web sin instalación ni cuenta propia y visor de resultados en el navegador.'),
+PROFILES = [('sun', 'people', 'Público general', 'MonitorEO web, sin instalación ni cuenta propia, y visor de resultados en el navegador.'),
             ('green', 'leaf', 'Gestores', 'Complemento de QGIS y un asistente conversacional que prepara mapas, series e informes a partir de preguntas en lenguaje natural.'),
             ('purple', 'code', 'Científicos y técnicos', 'Paquetes de Python y R, línea de comandos y servidor MCP, con el mismo cálculo que el resto de herramientas.')]
 MONITOREO_PROFILES = ''.join(f'<article class="card c-{c}"><span class="icon">{icon(i)}</span><h3>{t}</h3><p>{d}</p></article>'
@@ -1126,11 +1133,11 @@ def build_home():
       <p class="kicker">La herramienta del proyecto</p>
       <h2>MonitorEO: del satélite al informe, sin programar</h2>
       <p>MonitorEO-OBSNEV calcula en la nube series temporales, mapas, tendencias y anomalías de variables esenciales de
-      la biodiversidad para cualquier zona, desde una aplicación web que no necesita instalación ni cuenta propia. La
+      la biodiversidad para cualquier zona, desde MonitorEO web, que no necesita instalación ni cuenta propia. La
       co-diseñamos con los gestores para que la usen en sus planes de seguimiento y en sus informes.</p>
       {MONITOREO_STATS}
       <ul class="links" style="margin-top:22px">
-        <li>{ext(MONITOREO_APP, 'Abrir MonitorEO')}</li>
+        <li>{ext(MONITOREO_APP, 'MonitorEO web')}</li>
         <li><a href="@/monitoreo.html">Conoce la herramienta</a></li>
         <li>{ext(MONITOREO_GH, 'Código en GitHub')}</li>
       </ul>
@@ -1646,12 +1653,12 @@ usuarios finales (gestores, administraciones y población local) y al público g
 Google Earth Engine series temporales, mapas y tendencias de vegetación, agua, nieve, energía y perturbaciones a partir de
 MODIS, Landsat y Sentinel-2, siempre con el mismo cálculo en todas sus herramientas.</p>
 <div class="tool">
-  {leads(['<strong>Público general:</strong> aplicación web sin instalación ni cuenta propia y visor de resultados en el navegador.',
+  {leads(['<strong>Público general:</strong> MonitorEO web, sin instalación ni cuenta propia, y visor de resultados en el navegador.',
           '<strong>Gestores:</strong> complemento de QGIS y un asistente conversacional que prepara mapas, series e informes a partir de preguntas en lenguaje natural.',
           '<strong>Científicos y técnicos:</strong> paquetes de Python y R, línea de comandos y servidor MCP.'])}
   <ul class="links">
     <li><a href="@/monitoreo.html">Conoce MonitorEO</a></li>
-    <li>{ext(MONITOREO_APP, 'Abrir la aplicación')}</li>
+    <li>{ext(MONITOREO_APP, 'MonitorEO web')}</li>
     <li>{ext(MONITOREO_GH + '/wiki', 'Documentación')}</li>
     <li>{ext(MONITOREO_GH, 'Código abierto')}</li>
     <li>{ext(MONITOREO_DOI, 'Cómo citarla')}</li>
@@ -1696,7 +1703,7 @@ def build_monitoreo():
            'Filtrado de nubes, agua y calidad de los píxeles, y análisis de grandes áreas.',
            'Módulo de microclima que integra los sensores de campo.',
            'Descarga de resultados y servicios para cualquier SIG.']
-    tools = [('blue', 'globe', 'Aplicación web', 'En Google Earth Engine, sin instalar nada ni crear una cuenta.'),
+    tools = [('blue', 'globe', 'MonitorEO web', 'En Google Earth Engine, sin instalar nada ni crear una cuenta.'),
              ('teal', 'map', 'Visor de resultados', 'Para consultar y compartir los resultados en el navegador.'),
              ('green', 'layers', 'Complemento de QGIS', 'Las mismas variables dentro del SIG que ya usan los gestores.'),
              ('orange', 'chat', 'Asistente conversacional', 'Prepara mapas, series e informes a partir de preguntas en lenguaje natural.'),
@@ -1708,7 +1715,7 @@ def build_monitoreo():
 seguir variables esenciales de la biodiversidad con datos de satélite. Calcula en la nube, con Google Earth Engine, series
 temporales, mapas, tendencias y anomalías de vegetación, agua, nieve, energía y perturbaciones, y se co-diseña con los
 gestores para que la usen en sus planes de seguimiento y en sus informes europeos.</p>
-<ul class="links"><li>{ext(MONITOREO_APP, 'Abrir MonitorEO')}</li><li>{ext(MONITOREO_GH + '/wiki', 'Documentación')}</li>
+<ul class="links"><li>{ext(MONITOREO_APP, 'MonitorEO web')}</li><li>{ext(MONITOREO_GH + '/wiki', 'Documentación')}</li>
 <li>{ext(MONITOREO_GH, 'Código en GitHub')}</li><li>{ext(MONITOREO_DOI, 'Cómo citarla')}</li></ul></section>
 <section class="c-teal" style="margin-top:36px">{MONITOREO_STATS.replace('class="mstats"', 'class="mstats light"')}</section>
 <section><h2>Para los informes europeos</h2>

@@ -12,14 +12,33 @@ Es una web estática con los mismos apartados que la de [PRESINMED](https://pres
 
 Todo el contenido está en `_build/build.py`: proyecto, tareas, parques, equipo, noticias, publicaciones y MonitorEO.
 
-1. Edita `_build/build.py`.
-2. Regenera las páginas:
+Varias personas editan la web a la vez, así que **nunca se trabaja directamente en `main`**. Cada cambio va en su propia rama y entra en `main` mediante un *pull request*.
+
+1. Parte de un `main` actualizado y crea una rama con un nombre corto que describa el cambio:
+
+   ```
+   git switch main
+   git pull
+   git switch -c nueva-noticia-taller
+   ```
+
+2. Edita `_build/build.py` y regenera las páginas:
 
    ```
    python _build/build.py
    ```
 
-3. Sube los cambios a GitHub (`git add -A`, `git commit` y `git push`). Netlify publica la nueva versión en un par de minutos.
+3. Guarda el cambio y sube la rama:
+
+   ```
+   git add -A
+   git commit -m "Añade la noticia del taller nacional"
+   git push -u origin nueva-noticia-taller
+   ```
+
+4. En GitHub, abre un *pull request* de tu rama hacia `main`. Cuando la otra persona lo revise, se fusiona y Netlify publica la nueva versión en un par de minutos.
+
+Si dos ramas tocan la misma parte de `build.py`, GitHub avisará de un conflicto al fusionar la segunda. Las páginas `.html` se pueden resolver volviendo a ejecutar `python _build/build.py` sobre la rama actualizada.
 
 No edites los `.html` a mano: el script los sobrescribe.
 
