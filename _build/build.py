@@ -474,13 +474,14 @@ OBJECTIVES = [
     'guías y divulgación que apoyen la toma de decisiones, la gestión y la sensibilización pública.',
 ]
 
-TASK_SUMMARIES = {
-    'T1': 'Un grupo de trabajo ciencia-gestión que impulse el uso de la teledetección para cumplir las obligaciones de reporte europeas.',
-    'T2': 'Variables Esenciales de la Biodiversidad derivadas de satélite que describan la composición, la estructura y el funcionamiento de los ecosistemas.',
-    'T3': 'Dinámicas de referencia, variabilidad espacial, tendencias y anomalías de esas variables, comparadas entre parques.',
-    'T4': 'Validación con los gestores en tres aplicaciones: hábitats y especies, calidad del agua y recuperación.',
-    'T5': 'La herramienta MonitorEO, con guías, formación y divulgación para gestores, científicos y ciudadanía.',
-}
+# Task cards show the specific objectives exactly as the proposal states them (section 3.1).
+TASK_SUMMARIES = {f'T{i}': o for i, o in enumerate(OBJECTIVES, 1)}
+GENERAL_OBJECTIVE = (
+    'Sentar a gestores y científicos para co-diseñar, co-producir y validar un marco metodológico común, basado en la '
+    'experiencia de MonitorEO, que proporcione variables científicamente sólidas y útiles para la gestión, junto con '
+    'capacidades de seguimiento y modelización, para informar sobre el estado de conservación de especies y hábitats '
+    '(Directiva Hábitats), la calidad del agua (Directiva Marco del Agua) y la recuperación de los ecosistemas tras '
+    'perturbaciones y restauraciones (Reglamento de Restauración de la Naturaleza).')
 
 
 def task_card(code):
@@ -710,7 +711,7 @@ TASK_DETAIL[5] = task_page(
      'un vídeo documental, una exposición de pósteres para los centros de visitantes e infografías de los casos de '
      'estudio.</p></section>',
      '<section><h2 id="avances">Avances</h2>'
-     + leads(['<strong>MonitorEO-OBSNEV</strong> mejorada: filtrado de píxeles, análisis de grandes áreas, módulo de '
+     + leads(['<strong>MonitorEO</strong> mejorada: filtrado de píxeles, análisis de grandes áreas, módulo de '
               'microclima, visor de resultados, complemento de QGIS y código abierto en GitHub con DOI.',
               '<strong>Aplicaciones complementarias</strong> para usuarios sin programación: lagunas, verdad terreno y '
               'cartografía de borreguiles, estado de conservación y modelos de idoneidad.',
@@ -1078,7 +1079,7 @@ REPORT_FLOW = ('<ol class="flow" aria-label="Del satélite al informe">'
                    ('teal', 'trend', 'Indicador y referencia'), ('sun', 'doc', 'Informe europeo')]) + '</ol>')
 
 MONITOREO_STATS = ('<ul class="mstats">'
-                   '<li><b>+30</b><span>productos de satélite (MODIS, Landsat y Sentinel-2)</span></li>'
+                   '<li><b>3</b><span>satélites: MODIS, Landsat y Sentinel-2</span></li>'
                    '<li><b>10 m</b><span>de resolución máxima</span></li>'
                    '<li><b>1984</b><span>inicio de las series (Landsat)</span></li>'
                    '<li><b>8</b><span>formas de usarla, de la web a Python y R</span></li></ul>')
@@ -1137,7 +1138,7 @@ def build_home():
     <div>
       <p class="kicker">La herramienta del proyecto</p>
       <h2>MonitorEO: del satélite al informe, sin programar</h2>
-      <p>MonitorEO-OBSNEV calcula en la nube series temporales, mapas, tendencias y anomalías de Variables Esenciales de la Biodiversidad de
+      <p>MonitorEO calcula en la nube series temporales, mapas, tendencias y anomalías de Variables Esenciales de la Biodiversidad de
       la biodiversidad para cualquier zona, desde MonitorEO web, que no necesita instalación ni cuenta propia. La
       co-diseñamos con los gestores para que la usen en sus planes de seguimiento y en sus informes.</p>
       {MONITOREO_STATS}
@@ -1209,8 +1210,10 @@ def build_home():
 </div></section>
 
 <section class="band"><div class="wrap">
-  <p class="kicker">Plan de trabajo</p>
-  <h2>Cinco tareas, una por objetivo</h2>
+  <p class="kicker">Objetivos</p>
+  <h2>Objetivos del proyecto</h2>
+  <div class="callout prose"><p><b>Objetivo general.</b> {GENERAL_OBJECTIVE}</p></div>
+  <p class="prose">Cinco objetivos específicos, cada uno con su tarea, y estudios piloto en los ocho parques:</p>
   {tasks_cards()}
 </div></section>
 
@@ -1634,7 +1637,7 @@ transparente y reproducible. El plan de gestión de datos se actualiza durante e
 <tbody>{''.join(f'<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td><td>{d}</td></tr>' for a, b, c, d in repos)}</tbody></table></div>
 </section>
 <section class="prose c-teal"><h2>Cómo citar MonitorEO</h2>
-<p>MonitorEO-OBSNEV tiene un DOI en Zenodo: {ext(MONITOREO_DOI, 'doi:10.5281/zenodo.23814894')}. Las publicaciones del
+<p>MonitorEO tiene un DOI en Zenodo: {ext(MONITOREO_DOI, 'doi:10.5281/zenodo.23814894')}. Las publicaciones del
 proyecto citan además la referencia de financiación PID2023-151939OB-I00.</p></section>
 <section class="prose c-orange"><h2>Datos personales</h2>
 <p>El proyecto solo recoge datos personales en los talleres participativos: los datos de contacto de los participantes,
@@ -1715,7 +1718,7 @@ def build_monitoreo():
              ('blue', 'code', 'Paquete de Python', 'Para integrar los cálculos en flujos de trabajo propios.'),
              ('green', 'code', 'Paquete de R', 'Para el análisis estadístico de las series.'),
              ('orange', 'term', 'Línea de comandos', 'Para automatizar cálculos repetidos.')]
-    body = f'''<section class="prose"><p class="intro"><strong>MonitorEO-OBSNEV</strong> es una herramienta abierta para
+    body = f'''<section class="prose"><p class="intro"><strong>MonitorEO</strong> es una herramienta abierta para
 seguir Variables Esenciales de la Biodiversidad con datos de satélite. Calcula en la nube, con Google Earth Engine, series
 temporales, mapas, tendencias y anomalías de vegetación, agua, nieve, energía y perturbaciones, y se co-diseña con los
 gestores para que la usen en sus planes de seguimiento y en sus informes europeos.</p>
