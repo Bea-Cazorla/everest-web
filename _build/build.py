@@ -21,6 +21,11 @@ MONITOREO_APP = 'https://ee-ugr-default-project.projects.earthengine.app/view/mo
 MONITOREO_GH = 'https://github.com/monitoreo-obsnev/monitoreo'
 MONITOREO_DOI = 'https://doi.org/10.5281/zenodo.23814894'
 CONTACTS = [('Javier Martínez López', 'javier.martinez@ugr.es'), ('Domingo Alcaraz Segura', 'dalcaraz@ugr.es')]
+# Official project title, verbatim from the proposal (Memoria científico-técnica, section 1). Do not edit.
+TITLE_ES = ('Variables esenciales para la caracterización y seguimiento remoto de ecosistemas de montaña a lo largo de '
+            'un gradiente biogeográfico: del dato a la toma de decisiones')
+TITLE_EN = ('Essential Variables for the rEmote characterisation and monitoRing of mountain EcosystemS along a '
+            'biogeographical gradienT: from data to decision making')
 
 
 def ext(url, text):
@@ -68,7 +73,7 @@ PALETTE = ['blue', 'orange', 'green', 'teal', 'purple']
 # ---------------------------------------------------------------------------------------------------------------
 REGIONS = {'med': 'Mediterránea', 'alp': 'Alpina', 'atl': 'Atlántica', 'mac': 'Macaronésica'}
 TASK_PAGES = {'T1': 't1', 'T2': 't2', 'T3': 't3', 'T4': 't4', 'T5': 't5'}
-TASK_NAMES = {'T1': 'Implicación de actores', 'T2': 'Variables esenciales', 'T3': 'Dinámicas de referencia',
+TASK_NAMES = {'T1': 'Implicación de actores', 'T2': 'Variables Esenciales de la Biodiversidad', 'T3': 'Dinámicas de referencia',
               'T4': 'Aplicación a la gestión', 'T5': 'Transferencia'}
 TASK_COLORS = {'T1': 'orange', 'T2': 'green', 'T3': 'blue', 'T4': 'teal', 'T5': 'purple'}
 TASK_ICONS = {'T1': 'people', 'T2': 'layers', 'T3': 'trend', 'T4': 'leaf', 'T5': 'tool'}
@@ -433,7 +438,7 @@ def recovery_figure():
 
 PIPELINE_STEPS = [
     ('blue', 'satellite', 'Satélites', 'MODIS, Landsat, Sentinel-2 y PlanetScope, procesados en Google Earth Engine'),
-    ('green', 'layers', 'Variables esenciales', 'Composición, estructura y función: agua, energía y carbono'),
+    ('green', 'layers', 'Variables Esenciales de la Biodiversidad', 'Composición, estructura y función: agua, energía y carbono'),
     ('teal', 'trend', 'Referencias y tendencias', 'Dinámicas de referencia, tendencias, anomalías y variabilidad espacial'),
     ('orange', 'people', 'Casos con gestores', 'Hábitats y especies, lagos de alta montaña y restauración'),
     ('purple', 'tool', 'MonitorEO', 'Herramienta abierta para gestores, científicos y ciudadanía'),
@@ -456,7 +461,7 @@ OBJECTIVES = [
     'Co-diseñar y co-crear un grupo de trabajo ciencia-gestión que lidere un cambio transformador basado en el uso, por '
     'parte de gestores y responsables de la toma de decisiones, de datos de teledetección científicamente sólidos para '
     'cumplir las obligaciones de reporte derivadas de las normativas europeas.',
-    'Identificar y operativizar un conjunto de variables esenciales de la biodiversidad derivadas de teledetección, '
+    'Identificar y operativizar un conjunto de Variables Esenciales de la Biodiversidad derivadas de teledetección, '
     'científicamente sólidas y relevantes para la gestión, que caractericen la composición, la estructura y el '
     'funcionamiento de los ecosistemas y respondan a esas obligaciones.',
     'Caracterizar las dinámicas de referencia, la variabilidad espacial, las tendencias y las anomalías de las '
@@ -471,7 +476,7 @@ OBJECTIVES = [
 
 TASK_SUMMARIES = {
     'T1': 'Un grupo de trabajo ciencia-gestión que impulse el uso de la teledetección para cumplir las obligaciones de reporte europeas.',
-    'T2': 'Variables esenciales de satélite que describan la composición, la estructura y el funcionamiento de los ecosistemas.',
+    'T2': 'Variables Esenciales de la Biodiversidad derivadas de satélite que describan la composición, la estructura y el funcionamiento de los ecosistemas.',
     'T3': 'Dinámicas de referencia, variabilidad espacial, tendencias y anomalías de esas variables, comparadas entre parques.',
     'T4': 'Validación con los gestores en tres aplicaciones: hábitats y especies, calidad del agua y recuperación.',
     'T5': 'La herramienta MonitorEO, con guías, formación y divulgación para gestores, científicos y ciudadanía.',
@@ -561,7 +566,7 @@ TASK_DETAIL[1] = task_page(
      + park_badges([p['slug'] for p in PARKS]) + '</section>'])
 
 TASK_DETAIL[2] = task_page(
-    2, 'Variables esenciales', OBJECTIVES[1],
+    2, 'Variables Esenciales de la Biodiversidad', OBJECTIVES[1],
     [('Responsable', JML), ('Equipo', f'{DAS}, {JMAM}, {SAC}, {AJPL}, {BPC}, {ITB}'), ('Objetivo específico', '2'),
      ('Estado', 'En curso')],
     ['<section><h2 id="que-hacemos">Qué hacemos</h2>'
@@ -572,7 +577,7 @@ TASK_DETAIL[2] = task_page(
      '<p>De cada variable calculamos cada año métricas con significado biológico y útiles para la gestión: la media '
      'anual (cantidad total), la variabilidad estacional (estacionalidad) y las fechas del máximo y del mínimo '
      '(fenología). Para quedarnos con las métricas más informativas e independientes aplicamos análisis de componentes '
-     'principales (PCA) y de correlación. Las seleccionadas son candidatas a variables esenciales que se evalúan en las '
+     'principales (PCA) y de correlación. Las seleccionadas son candidatas a Variables Esenciales de la Biodiversidad que se evalúan en las '
      'aplicaciones de la Tarea 4.</p>'
      + figure('satelite')
      + '<p><a class="more" href="@/proyecto/variables.html">Qué variables usamos</a></p></section>',
@@ -817,7 +822,7 @@ NEWS = [
     ('2026-09-04', '4–6 de septiembre de 2026', 'divulgacion', 'Borreguiles en las VII Jornadas Lagunas de Sierra Nevada',
      'Presentamos la cartografía y la evaluación del estado de conservación de los pastizales húmedos de alta montaña '
      'mediante teledetección.'),
-    ('2026-06-22', '22–26 de junio de 2026', 'congreso', 'Variables esenciales para el estado de conservación, en el simposio de la IAVS',
+    ('2026-06-22', '22–26 de junio de 2026', 'congreso', 'Variables Esenciales de la Biodiversidad para el estado de conservación, en el simposio de la IAVS',
      'En el 68.º Simposio Anual de la Asociación Internacional de Ciencia de la Vegetación (Gijón) presentamos qué '
      'variables de teledetección son útiles para evaluar el estado de conservación de los hábitats en las áreas '
      'protegidas de montaña.'),
@@ -862,7 +867,7 @@ NEWS_COLORS = {'proyecto': 'blue', 'gestion': 'orange', 'congreso': 'purple', 'p
 # Navegación
 # ---------------------------------------------------------------------------------------------------------------
 NAV = [
-    ('proyecto', 'Proyecto', 'blue', [('Resumen y objetivos', 'proyecto/index.html'), ('Variables esenciales', 'proyecto/variables.html'),
+    ('proyecto', 'Proyecto', 'blue', [('Resumen y objetivos', 'proyecto/index.html'), ('Variables Esenciales de la Biodiversidad', 'proyecto/variables.html'),
                                       ('Tareas', 'proyecto/tareas.html')]
      + [(f'T{n} · {TASK_NAMES["T" + str(n)]}', f'proyecto/t{n}.html', 'indent') for n in range(1, 6)]),
     ('monitoreo', 'MonitorEO', 'teal', 'monitoreo.html'),
@@ -1069,7 +1074,7 @@ def regs_html(dark=False):
 
 REPORT_FLOW = ('<ol class="flow" aria-label="Del satélite al informe">'
                + ''.join(f'<li class="c-{c}">{icon(i)}<span>{t}</span></li>' for c, i, t in [
-                   ('blue', 'satellite', 'Imagen de satélite'), ('green', 'layers', 'Variable esencial'),
+                   ('blue', 'satellite', 'Imagen de satélite'), ('green', 'layers', 'Variable Esencial de la Biodiversidad'),
                    ('teal', 'trend', 'Indicador y referencia'), ('sun', 'doc', 'Informe europeo')]) + '</ol>')
 
 MONITOREO_STATS = ('<ul class="mstats">'
@@ -1096,7 +1101,7 @@ def build_home():
     hero = (f'<section class="hero" style="background-image:url(\'{hero_ph["src"]}\')"><div class="wrap">'
             '<p class="eyebrow"><span>Proyecto de investigación</span><span style="background:var(--green)">2024–2028</span></p>'
             '<h1>EVEREST</h1>'
-            '<p class="tagline">Variables esenciales para seguir <em>desde el satélite</em> los ecosistemas de montaña</p>'
+            f'<p class="tagline">{TITLE_ES}</p>'
             '<p class="lede">Los gestores de los espacios protegidos deben informar a Europa del estado de la naturaleza '
             'según la Directiva Hábitats, la Directiva Marco del Agua y el Reglamento de Restauración de la Naturaleza. '
             'EVEREST, junto con ellos, define qué variables de satélite sirven para esos informes y las pone a su alcance '
@@ -1132,7 +1137,7 @@ def build_home():
     <div>
       <p class="kicker">La herramienta del proyecto</p>
       <h2>MonitorEO: del satélite al informe, sin programar</h2>
-      <p>MonitorEO-OBSNEV calcula en la nube series temporales, mapas, tendencias y anomalías de variables esenciales de
+      <p>MonitorEO-OBSNEV calcula en la nube series temporales, mapas, tendencias y anomalías de Variables Esenciales de la Biodiversidad de
       la biodiversidad para cualquier zona, desde MonitorEO web, que no necesita instalación ni cuenta propia. La
       co-diseñamos con los gestores para que la usen en sus planes de seguimiento y en sus informes.</p>
       {MONITOREO_STATS}
@@ -1178,9 +1183,9 @@ def build_home():
       <p class="kicker">Nuestro enfoque</p>
       <h2>Del satélite a la decisión</h2>
       <p>Las series de satélite cubren décadas y todo el territorio, también las zonas de difícil acceso. Las
-      convertimos en variables esenciales de la biodiversidad y en métricas que los gestores pueden usar en sus planes de
+      convertimos en Variables Esenciales de la Biodiversidad y en métricas que los gestores pueden usar en sus planes de
       seguimiento.</p>
-      <p><a class="more" href="@/proyecto/variables.html">Qué son las variables esenciales</a></p>
+      <p><a class="more" href="@/proyecto/variables.html">Qué son las Variables Esenciales de la Biodiversidad</a></p>
     </div>
     {figure('satelite')}
   </div>
@@ -1217,15 +1222,14 @@ def build_home():
 </div></section>
 </main>'''
     render('index.html', title='Proyecto EVEREST', section='inicio', home=True, color='blue',
-           desc='EVEREST: variables esenciales para la caracterización y seguimiento remoto de ecosistemas de montaña a lo '
-                'largo de un gradiente biogeográfico. Proyecto PID2023-151939OB-I00, Universidad de Granada.',
+           desc=f'EVEREST: {TITLE_ES}. Proyecto PID2023-151939OB-I00, Universidad de Granada.',
            body=body, hero=hero)
 
 
 def build_project():
     questions = [
-        '¿Cuáles son las variables esenciales y métricas más sólidas científicamente y útiles para la gestión en relación con las obligaciones de reporte europeas en las áreas protegidas de montaña?',
-        '¿Cómo pueden derivarse las variables esenciales a partir de datos brutos, combinando muestreos de campo, instrumentos automáticos, modelos ecológicos y teledetección?',
+        '¿Cuáles son las Variables Esenciales de la Biodiversidad y métricas más sólidas científicamente y útiles para la gestión en relación con las obligaciones de reporte europeas en las áreas protegidas de montaña?',
+        '¿Cómo pueden derivarse las Variables Esenciales de la Biodiversidad a partir de datos brutos, combinando muestreos de campo, instrumentos automáticos, modelos ecológicos y teledetección?',
         '¿Cómo caracterizar con teledetección las dinámicas de referencia, las tendencias, las anomalías y la variabilidad espacial de la composición, la estructura y la función de los ecosistemas?',
         '¿Cómo seguir la estabilidad de los ecosistemas para detectar trayectorias de recuperación o restauración y posibles cambios de régimen?',
         '¿Pueden identificarse los principales factores de los cambios de distribución y de régimen con modelos que integren las distintas dimensiones del ecosistema?',
@@ -1239,8 +1243,8 @@ def build_project():
     ]
     objs = ''.join(f'<li class="c-{TASK_COLORS["T" + str(i)]}">{o} <a href="@/proyecto/t{i}.html">Tarea {i}</a></li>'
                    for i, o in enumerate(OBJECTIVES, 1))
-    body = f'''<p class="intro"><strong>EVEREST</strong> (<em>Essential Variables for the rEmote characterisation and monitoRing
-of mountain EcosystemS along a biogeographical gradienT</em>) es un proyecto de investigación orientada de la convocatoria
+    body = f'''<p class="intro"><strong>EVEREST</strong> es el acrónimo de «{TITLE_ES}» (en inglés, <em>{TITLE_EN}</em>).
+Es un proyecto de investigación orientada de la convocatoria
 de Proyectos de Generación de Conocimiento 2023 del Plan Estatal de Investigación Científica, Técnica y de Innovación,
 liderado por la Universidad de Granada.</p>
 {factbox([('Referencia', '<span class="mono">PID2023-151939OB-I00</span>'), ('Entidad', 'Universidad de Granada'),
@@ -1262,7 +1266,7 @@ si una especie o un hábitat tiene un estado de conservación adecuado, si neces
 funcionan. Además, es una obligación legal derivada de la Directiva Hábitats (artículo 17), la Directiva Marco del Agua y
 el Reglamento de Restauración de la Naturaleza.</p>
 </section>
-<section class="prose c-green"><h2>Por qué variables esenciales desde satélite</h2>
+<section class="prose c-green"><h2>Por qué Variables Esenciales de la Biodiversidad desde satélite</h2>
 {leads(['<strong>Seguimiento continuo y a gran escala.</strong> Las series de MODIS, Landsat y Sentinel cubren décadas y todo el territorio, también las zonas de difícil acceso.',
         '<strong>Respuesta temprana.</strong> Los atributos funcionales (productividad, estacionalidad, fenología) responden antes a las perturbaciones que la composición y la estructura, que tienen más inercia.',
         '<strong>Menor coste.</strong> Seguir la composición de especies sobre el terreno a escala regional es muy caro; el satélite permite priorizar dónde muestrear.',
@@ -1292,7 +1296,7 @@ perturbaciones y restauraciones (Reglamento de Restauración de la Naturaleza).<
 <ol class="num">{''.join(f'<li>{q}</li>' for q in questions)}</ol>
 </section>
 <section class="prose c-teal"><h2>Resultados esperados</h2>
-{leads(['Un conjunto de variables esenciales y métricas de satélite, sólidas y útiles para la gestión, para cada obligación de reporte.',
+{leads(['Un conjunto de Variables Esenciales de la Biodiversidad y métricas de satélite, sólidas y útiles para la gestión, para cada obligación de reporte.',
         'Dinámicas de referencia, tendencias y anomalías de esas variables comparadas a lo largo de un gradiente biogeográfico.',
         'Mapas de hábitats de alta resolución sobre grandes superficies y su estado de conservación.',
         'Nuevos módulos de MonitorEO para hábitats, especies, agua y restauración, disponibles a través de LifeWatch ERIC.',
@@ -1315,8 +1319,8 @@ def build_variables():
         ('LiDAR del PNOA', 'Alta resolución', 'Periodos recientes', 'Altura y estructura de la vegetación'),
     ]
     rows = ''.join(f'<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td><td>{d}</td></tr>' for a, b, c, d in sensors)
-    body = f'''<section class="prose"><h2>Qué son las variables esenciales</h2>
-<p>Las variables esenciales de la biodiversidad son el conjunto mínimo de medidas necesario para estudiar, seguir e
+    body = f'''<section class="prose"><h2>Qué son las Variables Esenciales de la Biodiversidad</h2>
+<p>Las Variables Esenciales de la Biodiversidad son el conjunto mínimo de medidas necesario para estudiar, seguir e
 informar sobre los cambios de la biodiversidad, tal como las propone la red internacional GEO BON. Las que se obtienen por
 teledetección permiten seguirlas de forma continua, repetible y comparable en grandes territorios, también donde es difícil
 llegar a pie.</p>
@@ -1366,15 +1370,15 @@ a esa variabilidad, que pueden avisar de cambios antes de que sean evidentes. Tr
 permiten medir la severidad y el tiempo de recuperación (<a href="@/proyecto/t4.html#recuperacion">Tarea 4.3</a>).</p>
 {figure('nieve-satelite')}
 </section>'''
-    render('proyecto/variables.html', title='Variables esenciales · EVEREST', section='proyecto', color='green',
+    render('proyecto/variables.html', title='Variables Esenciales de la Biodiversidad · EVEREST', section='proyecto', color='green',
            desc='Qué variables de satélite mide EVEREST y cómo las convierte en información para la gestión.',
-           body=body, hero=page_hero([('Proyecto', None)], 'Variables esenciales',
+           body=body, hero=page_hero([('Proyecto', None)], 'Variables Esenciales de la Biodiversidad',
                                      'Qué medimos desde el satélite y cómo lo convertimos en información para la gestión.',
                                      img='satelite'))
 
 
 def build_tasks():
-    rows = [('T1', 'Implicación de actores', RZ, '—'), ('T2', 'Variables esenciales', JML, '—'),
+    rows = [('T1', 'Implicación de actores', RZ, '—'), ('T2', 'Variables Esenciales de la Biodiversidad', JML, '—'),
             ('T3', 'Dinámicas de referencia, tendencias y anomalías', DAS, '—'),
             ('T4.1.1', 'Hábitats', JML, 'MonitorEO4Habitats'), ('T4.1.2', 'Especies', DAS, 'MonitorEO4Species'),
             ('T4.2', 'Calidad del agua de los lagos', JML, 'MonitorEO4Water'),
@@ -1392,7 +1396,7 @@ def build_tasks():
                   ('31 de diciembre de 2028', 'Fin del proyecto.')]
     body = f'''<section class="prose"><h2>Cómo se relacionan</h2>
 <p>La <strong>Tarea 1</strong> enmarca todo el proyecto: con los gestores se eligen los casos de estudio y se validan los
-resultados. La <strong>Tarea 2</strong> selecciona las variables esenciales; la <strong>Tarea 3</strong> describe sus
+resultados. La <strong>Tarea 2</strong> selecciona las Variables Esenciales de la Biodiversidad; la <strong>Tarea 3</strong> describe sus
 dinámicas de referencia, tendencias y anomalías; y la <strong>Tarea 4</strong> las aplica a tres obligaciones de reporte.
 La <strong>Tarea 5</strong> traslada los resultados a MonitorEO y a la sociedad.</p>
 </section>
@@ -1490,7 +1494,7 @@ def build_team():
     orgs = leads([f'<strong>{n}</strong>: {d}' for n, d in PARTNER_ORGS])
     projs = leads([f'<strong>{ext(u, n) if u else n}</strong>. {d}' for n, u, d in PROJECTS])
     nets = ''.join(f'<li class="c-{PALETTE[i % len(PALETTE)]}">{ext(u, n)}</li>' for i, (n, u) in enumerate(NETWORKS))
-    rows = [('T1 · Implicación de actores', 'Universidad de Granada', 'T1'), ('T2 · Variables esenciales', 'Universidad de Granada', 'T2'),
+    rows = [('T1 · Implicación de actores', 'Universidad de Granada', 'T1'), ('T2 · Variables Esenciales de la Biodiversidad', 'Universidad de Granada', 'T2'),
             ('T3 · Dinámicas de referencia', 'Universidad de Granada', 'T3'), ('T4 · Aplicación a la gestión', 'Universidad de Granada', 'T4'),
             ('T5 · Transferencia', 'LifeWatch ERIC', 'T5')]
     body = f'''<section class="prose"><p class="intro">EVEREST reúne universidades, centros de investigación, una
@@ -1607,7 +1611,7 @@ con los datos y el código disponibles.</p></section>
            body=body, hero=page_hero([('Resultados', None)], 'Publicaciones', 'Artículos, capítulos, congresos y trabajos académicos.',
                                      img='amanecer'))
 
-    repos = [('MonitorEO', 'Series, mapas y tendencias de las variables esenciales para cualquier zona', 'Productos de datos', ext(MONITOREO_APP, 'Disponible')),
+    repos = [('MonitorEO', 'Series, mapas y tendencias de las Variables Esenciales de la Biodiversidad para cualquier zona', 'Productos de datos', ext(MONITOREO_APP, 'Disponible')),
              ('GitHub', 'Código de MonitorEO y de los análisis', 'Código abierto (GPL-3.0)', ext(MONITOREO_GH, 'Disponible')),
              ('Zenodo', 'Versiones citables del software y de los conjuntos de datos', 'DOI', ext(MONITOREO_DOI, 'Disponible')),
              ('GeoServer del Observatorio y LifeWatch ERIC', 'Productos de imagen accesibles desde cualquier SIG', 'WMS, WCS y WFS', 'Previsto')]
@@ -1618,7 +1622,7 @@ datos de GEO.</p></section>
 <p class="prose">Toda la información que produce el proyecto se evalúa y se acompaña de sus metadatos para que sea
 transparente y reproducible. El plan de gestión de datos se actualiza durante el proyecto.</p>
 <div class="dims">
-  <div class="dim c-blue"><h3>{icon('satellite')}Teledetección</h3><p>Variables esenciales y métricas derivadas de MODIS,
+  <div class="dim c-blue"><h3>{icon('satellite')}Teledetección</h3><p>Variables Esenciales de la Biodiversidad y métricas derivadas de MODIS,
   Landsat, Sentinel-2, PlanetScope y LiDAR, calculadas en Google Earth Engine.</p></div>
   <div class="dim c-orange"><h3>{icon('snow')}Sensores en campo</h3><p>Sensores de microclima (temperatura y humedad del
   suelo y del aire) y nieve del Observatorio de Cambio Global de Sierra Nevada.</p></div>
@@ -1649,7 +1653,7 @@ el equipo, y las respuestas se seudonimizan para su análisis.</p></section>'''
     body = f'''<section class="prose"><p class="intro">EVEREST comunica en tres niveles: a la comunidad científica, a los
 usuarios finales (gestores, administraciones y población local) y al público general.</p></section>
 <section class="c-teal"><h2>MonitorEO</h2>
-<p class="prose">Herramienta abierta para seguir variables esenciales de la biodiversidad con datos de satélite. Calcula en
+<p class="prose">Herramienta abierta para seguir Variables Esenciales de la Biodiversidad con datos de satélite. Calcula en
 Google Earth Engine series temporales, mapas y tendencias de vegetación, agua, nieve, energía y perturbaciones a partir de
 MODIS, Landsat y Sentinel-2, siempre con el mismo cálculo en todas sus herramientas.</p>
 <div class="tool">
@@ -1712,7 +1716,7 @@ def build_monitoreo():
              ('green', 'code', 'Paquete de R', 'Para el análisis estadístico de las series.'),
              ('orange', 'term', 'Línea de comandos', 'Para automatizar cálculos repetidos.')]
     body = f'''<section class="prose"><p class="intro"><strong>MonitorEO-OBSNEV</strong> es una herramienta abierta para
-seguir variables esenciales de la biodiversidad con datos de satélite. Calcula en la nube, con Google Earth Engine, series
+seguir Variables Esenciales de la Biodiversidad con datos de satélite. Calcula en la nube, con Google Earth Engine, series
 temporales, mapas, tendencias y anomalías de vegetación, agua, nieve, energía y perturbaciones, y se co-diseña con los
 gestores para que la usen en sus planes de seguimiento y en sus informes europeos.</p>
 <ul class="links"><li>{ext(MONITOREO_APP, 'MonitorEO web')}</li><li>{ext(MONITOREO_GH + '/wiki', 'Documentación')}</li>
@@ -1745,10 +1749,10 @@ la desarrolla el Observatorio de Cambio Global de Sierra Nevada (Universidad de 
 PRESINMED y EVEREST. Es código abierto (licencia GPL-3.0) y tiene un DOI en Zenodo:
 {ext(MONITOREO_DOI, 'doi:10.5281/zenodo.23814894')}.</p></section>'''
     render('monitoreo.html', title='MonitorEO · EVEREST', section='monitoreo', color='teal',
-           desc='MonitorEO, la herramienta abierta de EVEREST para seguir variables esenciales de la biodiversidad con '
+           desc='MonitorEO, la herramienta abierta de EVEREST para seguir Variables Esenciales de la Biodiversidad con '
                 'datos de satélite y apoyar los informes europeos.', body=body,
            hero=page_hero([('Herramienta', None)], 'MonitorEO',
-                          'Del satélite al informe, sin programar: variables esenciales de la biodiversidad para gestores, '
+                          'Del satélite al informe, sin programar: Variables Esenciales de la Biodiversidad para gestores, '
                           'científicos y ciudadanía.', img='nieve-satelite'))
 
 
